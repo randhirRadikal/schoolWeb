@@ -23,13 +23,18 @@
 				url : '/dashboard',
 				controller:'dashboardCtrl',
 				template : '<h3>Welcome to dashboard</h3>'
+			}).state({
+				name : 'students',
+				url : '/students',
+				controller:'studentsCtrl',
+				templateUrl : 'pages/student.html'
 			});
 			$urlRouterProvider.when('','/login');
 		}
 	]);
 
 	angular.module('app').run(["$rootScope","localStorageService","$state", function ($rootScope,localStorageService,$state) {
-		var userId = localStorageService.getStorageId();
+		var userId = localStorageService.getStorageAccessToken();
 		//console.log(userId);
 		if (userId) {
 			$rootScope.isUserLoggedIn = true;

@@ -3,13 +3,13 @@
 	angular.module('app').controller('mainCtrl',[
 		'$scope','$state','localStorageService','notify','$rootScope','$location',
 		function($scope,$state,localStorageService,notify,$rootScope,$location){
-			var userId = localStorageService.getStorageId();
+			var userId = localStorageService.getStorageAccessToken();
 			//console.log(userId);
 			if(!userId){
 				window.location.href = "#!/login";
 			}
 			$scope.logoutUser = function(){
-				localStorageService.deleteStorageId();
+				localStorageService.deleteStorageAccessToken();
 				notify('Logout Successfully.');
 				console.log('Logout');
 				$rootScope.isUserLoggedIn = false;
