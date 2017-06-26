@@ -1,8 +1,6 @@
 (function() {
 	'use strict';
 	angular.module('app',[
-		'ui.bootstrap',
-		'ui.bootstrap.datetimepicker',
 		'ui.router',
 		'cgNotify',
 		'ngStorage',
@@ -22,7 +20,7 @@
 				name : 'dashboard',
 				url : '/dashboard',
 				controller:'dashboardCtrl',
-				template : '<h3>Welcome to dashboard</h3>'
+				templateUrl : 'pages/dashboard.html'
 			}).state({
 				name : 'students',
 				url : '/students',
