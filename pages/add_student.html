@@ -1,0 +1,96 @@
+<section class="wrapper">
+  <div class="form-w3layouts">
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">
+            Student Forms
+          </header>
+          <div class="panel-body">
+            <div class="position-center">
+              <form role="form">
+                <div class="form-group">
+                  <label for="nm">Name<small class="text-danger">*</small></label>
+                  <input type="text" class="form-control" id="nm" name="nm"  ng-model="student.nm" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="father_nm">Father Name<small class="text-danger">*</small></label>
+                  <input type="text" class="form-control" id="father_nm" name="father_nm"  ng-model="student.father_nm" placeholder="Father Name">
+                </div>
+                <div class="form-group">
+                  <label for="mother_nm">Mother Name<small class="text-danger">*</small></label>
+                  <input type="text" class="form-control" id="mother_nm" name="mother_nm" ng-model="student.mother_nm" placeholder="Mother Name">
+                </div>
+                <div class="form-group">
+                  <label for="dob">Date Of Birthday<small class="text-danger">*</small></label>
+                  <input type="text" class="form-control" id="dob" name="dob"  ng-model="student.dob" placeholder="Date Of Birthday">
+                </div>
+                <div class="form-group">
+                  <label for="father_nm">Gender<small class="text-danger">*</small></label>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="Female" ng-model="student.gender">Female</label>
+                  <label class="radio-inline"><input type="radio" name="optradio" value="Male" ng-model="student.gender">Male</label>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email<small class="text-danger">*</small></label>
+                  <input type="email" class="form-control" id="email" name="email"  ng-model="student.email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="mob">Mobile Number<small class="text-danger">*</small></label>
+                  <input type="text" class="form-control" id="mob" name="mob"  ng-model="student.mob">
+                </div>
+                <div class="form-group">
+                  <label for="a_class_id">Class<small class="text-danger">*</small></label>
+                  <select class="form-control" id="a_class_id" name="a_class_id" ng-change="getSectionList(student.a_class_id)"  ng-model="student.a_class_id">
+                    <option ng-repeat="class in classList" value="{{class.clsid}}">{{class.class_nm}}</option>
+                  </select>
+                </div>
+                <div class="form-group" ng-if="student.a_class_id">
+                  <label for="a_sec_id">Section<small class="text-danger">*</small></label>
+                  <select class="form-control" id="a_sec_id" name="a_sec_id"  ng-model="student.a_sec_id">
+                    <option ng-repeat="section in sectionList" value="{{section.secid}}">{{section.sec_nm}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="address1">Address 1<small class="text-danger">*</small></label>
+                  <input type="text" class="form-control" id="address1" name="address1"  ng-model="student.address.address1">
+                </div>
+                <div class="form-group">
+                  <label for="address2">Address 2</label>
+                  <input type="text" class="form-control" id="address2" name="address2"  ng-model="student.address.address2">
+                </div>
+                <div class="form-group">
+                  <label for="streat">Streat<small class="text-danger">*</small></label>
+                  <input type="text" class="form-control" id="streat" name="streat"  ng-model="student.address.streat">
+                </div>
+                <div class="form-group">
+                  <label for="country">Country<small class="text-danger">*</small></label>
+                  <select class="form-control" id="country" name="country" ng-model="student.address.country" ng-change="getStateList(student.address.country);">
+                    <option ng-repeat="country in countryList" value="{{country.cityid}}">{{country.country_nm}}</option>
+                  </select>
+                </div>
+                <div class="form-group" ng-if="student.address.country">
+                  <label for="state">State<small class="text-danger">*</small></label>
+                  <select class="form-control" id="state" name="state"  ng-model="student.address.state" ng-change="getCityList(student.address.state);">
+                    <option ng-repeat="state in stateList" value="{{city.cityid}}">{{state.state_nm}}</option>
+                  </select>
+                </div>
+                <div class="form-group" ng-if="student.address.state">
+                  <label for="city">City<small class="text-danger">*</small></label>
+                  <select class="form-control" id="city" name="city"  ng-model="student.address.city">
+                    <option ng-repeat="city in cityList" value="{{city.cityid}}">{{city.city_nm}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="zip_code">Zip Code</label>
+                  <input type="text" class="form-control" id="zip_code" name="zip_code"  ng-model="student.address.zip_code">
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+                {{student||json}}
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

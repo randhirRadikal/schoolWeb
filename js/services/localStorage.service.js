@@ -3,26 +3,36 @@
 	angular.module('app').factory('localStorageService',['$localStorage','$sessionStorage',function($localStorage,$sessionStorage){
 
 		$localStorage=$localStorage.$default({
-			accessToken:""
+			accessToken:"",
+			userEmail:"",
+			userName:""
 		});
-		console.log('ok');
 
-		var setStorageAccessToken=function(accessToken){
-			console.log(accessToken);
+		var setStorage=function(accessToken,userEmail,userName){
 			$localStorage.accessToken=accessToken;
+			$localStorage.userEmail=userEmail;
+			$localStorage.userName=userName;
 		};
 
 		var getStorageAccessToken=function(){
-			return $localStorage.accessToken;
+			var data = {
+				accessToken:$localStorage.accessToken,
+				userEmail:$localStorage.userEmail,
+				userName:$localStorage.userName
+			};
+			return data;
 		};
 
 		var deleteStorageAccessToken = function(){
-			return delete $localStorage.accessToken;
+			delete $localStorage.accessToken;
+			delete $localStorage.userEmail;
+			delete $localStorage.userName;
+			return true;
 		};
 
 
 		return{
-			setStorageAccessToken : setStorageAccessToken,
+			setStorageAccessToken : setStorage,
 			getStorageAccessToken : getStorageAccessToken,
 			deleteStorageAccessToken : deleteStorageAccessToken
 		};

@@ -1,0 +1,57 @@
+<section class="wrapper">
+  <div class="table-agile-info">
+<div class="panel panel-default">
+  <div class="panel-heading">
+   Fee
+  </div>
+  <div>
+    <table class="table" ui-jq="footable" ui-options='{
+      "paging": {
+        "enabled": true
+      },
+      "filtering": {
+        "enabled": true
+      },
+      "sorting": {
+        "enabled": true
+      }}'>
+      <thead>
+        <!-- <tr>
+          <th colspan="4">
+          </th>
+          <th><a class="btn btn-sm btn-default" href="#!/students/add"><i class="fa fa-plus"></i>Add Student</button></th>
+        </tr> -->
+        <tr>
+          <td colspan="5" align="center">
+            <div class="form-group">
+              <label for="a_class_id">Class<small class="text-danger">*</small></label>
+              <select class="form-control" id="a_class_id" name="a_class_id" ng-change="getSectionList(student.a_class_id)"  ng-model="student.a_class_id">
+                <option ng-repeat="class in classList" value="{{class.clsid}}">{{class.class_nm}}</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="5" align="center">
+            <div class="form-group" ng-if="student.a_class_id">
+              <label for="a_sec_id">Section<small class="text-danger">*</small></label>
+              <select class="form-control" id="a_sec_id" name="a_sec_id"  ng-model="student.a_sec_id">
+                <option ng-repeat="section in sectionList" value="{{section.secid}}">{{section.sec_nm}}</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-expanded="true">
+          <td>1</td>
+          <td>Dennise</td>
+          <td>Fuhrman</td>
+          <td>High School History Teacher</td>
+          <td>July 25th 1960</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
